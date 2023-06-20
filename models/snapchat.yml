@@ -129,12 +129,11 @@ models:
     description: Each record represents the daily performance of Snapchat ads that leverage urls.
     tests:
       - dbt_utils.unique_combination_of_columns:
+          # This test looks for fan-outs when an ad has more than 1 associated adsquad/campaign/creative
           combination_of_columns:
             - ad_id
             - date_day
-          config:
-            # Below is so we don't run this test if the user has allowed urls to have null entries
-            enabled: "{{ var('ad_reporting__url_report__using_null_filter', True) }}"
+
     columns:
       - name: date_day
         description: The date of the report.
@@ -144,12 +143,20 @@ models:
         description: The ID of the ad in Snapchat.
         tests:
           - not_null
+      - name: ad_squad_id
+        description: The ID of the ad squad in Snapchat.
+      - name: campaign_id
+        description: The ID of the campaign in Snapchat.
       - name: ad_account_id
         description: The ID of the account in Snapchat.
       - name: ad_account_name
         description: The name of the account in Snapchat.
       - name: ad_name
         description: The name of the ad in Snapchat.
+      - name: ad_squad_name
+        description: The name of the ad squad in Snapchat.
+      - name: campaign_name
+        description: The name of the campaign in Snapchat.
       - name: currency
         description: The current used by the account in Snapchat.
       - name: base_url
