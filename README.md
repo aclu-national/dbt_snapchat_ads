@@ -2,6 +2,9 @@
     <a alt="License"
         href="https://github.com/fivetran/dbt_snapchat_ads/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
+    <a alt="Fivetran-Release"
+        href="https://fivetran.com/docs/getting-started/core-concepts#releasephases">
+        <img src="https://img.shields.io/badge/Fivetran Release Phase-_Beta-orange.svg" /></a>
     <a alt="dbt-core">
         <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_,<2.0.0-orange.svg" /></a>
     <a alt="Maintained?">
@@ -45,13 +48,12 @@ dispatch:
 ## Step 2: Install the package
 Include the following snapchat_ads_source package version in your `packages.yml` file:
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
-```yml
+```yaml
 packages:
   - package: fivetran/snapchat_ads
-    version: [">=0.5.0", "<0.6.0"] # we recommend using ranges to capture non-breaking changes automatically
-```
-Do NOT include the `snapchat_ads_source` package in this file. The transformation package itself has a dependency on it and will install the source package as well.
+    version: [">=0.5.0", "<0.6.0"]
 
+```
 ## Step 3: Configure your variables
 
 ### Define database and schema variables
